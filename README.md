@@ -1,7 +1,8 @@
 # liff　ユニマク
 liffアプリを使用してユニコを連投します
 
-リンク
+liffリンク
+
 liff.line.me/
 
 line://app/
