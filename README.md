@@ -1,5 +1,5 @@
 # liff　ユニマク
-liffアプリを使用してユニコを連投します
+liffアプリを使用してユニコを連投します。iphoneとandroidのliffブラウザでのみ使えます。
 
 liffリンク
 
