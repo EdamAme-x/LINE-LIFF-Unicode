@@ -3,9 +3,9 @@ liffアプリを使用してユニコを連投します。iphoneとandroidのlif
 
 liffアプリ　リンク
 
-https://liff.line.me/
+https://liff.line.me/1661226722-beANnaeG
 
-line://app/
+line://app/1661226722-beANnaeG
 # 使い方
 liffアプリのリンクを対象のトークに送信して開きます。
 機内モードで送信すればliffのリンクは相手に見えません。
