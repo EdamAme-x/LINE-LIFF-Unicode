@@ -12,7 +12,7 @@
     <div class="container mt-2">
         <h1>LIFFユニマク　悪用厳禁</h1>
         <p>user:<span id="name">name</span></p>
-        <p>type:<span id="con">type</span></p>
+        <p>type:<span id="typ">type</span></p>
         <input type="button" value="再読込" onclick=location.reload() />
         <input type="button" value="test" onclick=sendMessage(てすと) />
     </div>
@@ -60,10 +60,10 @@
         }
       function getContext(){
             liff.getContext()
-            .then((Context) => {
-                const type = Context['type'];
-                const typename = document.getElementById('con');
-                typename.innerHTML= Context;
+            .then((context) => {
+                const type = context['type'];
+                const typename = document.getElementById('typ');
+                typename.innerHTML= context;
             })
             .catch((err) => {
                 alert(err);
