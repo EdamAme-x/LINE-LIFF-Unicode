@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIFFユニマク</title>
-    <link href="https://static.line-scdn.net/Openchat-Real/edge/css/square.2.20.1.1687847203022.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
 </head>
 <body>
     <div class="container mt-2">
         <h1>LIFFユニマク　悪用厳禁</h1>
         <p>user:<span id="name">name</span></p>
         <p>type:<span id="con">type</span></p>
-        <input type="button" value="再読込" class="btn" onclick="location.reload() />
-    </div>
-    <script src='https://static.line-scdn.net/liff/edge/2/sdk.js' />
+        <input type="button" value="再読込" onclick=location.reload() /></div>
+    <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'><script>
     <script>
         const name = '名前が不明です';
         const liffId='1661226722-beANnaeG'
@@ -43,12 +42,12 @@
             liff
             .sendMessages([
                 {
-                type: "text",
+                type: 'text',
                 text: message,
                 },
             ])
             .then(() => {
-                alert("message sent");
+                alert('message sent');
             })
             .catch((err) => {
                 alert(err);
@@ -57,7 +56,7 @@
       function getContext(){
             liff.getContext()
             .then((Context) => {
-                const type = Context["type"];
+                const type = Context['type'];
                 const typename = document.getElementById('con');
                 typename.innerHTML= Context;
             })
