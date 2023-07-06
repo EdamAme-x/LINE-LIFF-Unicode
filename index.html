@@ -60,7 +60,7 @@
             .then((Context) => {
                 const type = Context["type"]
                 const typename = document.getElementById('con')
-                typename.innerHTML= type
+                typename.innerHTML= Context
             })
             .catch((err) => {
                 alert(err)
