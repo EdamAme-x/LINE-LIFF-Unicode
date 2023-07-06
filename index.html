@@ -24,6 +24,9 @@
             liffId: liffId // Use own liffId
         }).then(() => {
             getProfile();
+        }).catch((err) => {
+            alert(err);
+        }).then(() => {
             getContext();
         }).catch((err) => {
             alert(err);
