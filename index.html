@@ -51,7 +51,9 @@
                 type: 'text',
                 text: "test",
                 },
-            ])
+            ]).then(() => {
+                document.getElementById('err').innerHTML= ""
+            })
             .catch((err) => {
                 document.getElementById('err').innerHTML= err
             });
