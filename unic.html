@@ -47,7 +47,9 @@
                 type: 'text',
                 text: "test",
                 },
-            ])
+            ]).catch((err) => {
+                alert(err);
+            })
         }
       function gettype(){
             const context = liff.getContext();
