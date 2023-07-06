@@ -11,14 +11,19 @@
 <body>
     <div class="container mt-2">
         <h1>LIFFユニマク　連投中</h1>
+        <p>error:<span id="err"></span></p>
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
         const liffId='1661226722-beANnaeG'
         liff.init({
             liffId: liffId // Use own liffId
-        }).catch((err) => {
-            alert(err);
+        }).then(() => {
+                document.getElementById('err').innerHTML= ""
+            })
+            .catch((err) => {
+                document.getElementById('err').innerHTML= err
+            })
         }).then(() => {
             sendMessage();
         }).then(() => {
@@ -49,8 +54,11 @@
                 type: 'text',
                 text: "test",
                 },
-            ]).catch((err) => {
-                alert(err);
+            ]).then(() => {
+                document.getElementById('err').innerHTML= ""
+            })
+            .catch((err) => {
+                document.getElementById('err').innerHTML= err
             })
         }
       function gettype(){
