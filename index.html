@@ -14,7 +14,7 @@
         <p>user:<span id="name">name</span></p>
         <p>type:<span id="typ">type</span></p>
         <input type="button" value="再読込" onclick=location.reload() />
-        <input type="button" value="test" onclick=sendMessage(てすと) />
+        <input type="button" value="test" onclick=sendMessage() />
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
@@ -44,11 +44,11 @@
             });
         }
 
-        function sendMessage(message){
+        function sendMessage(){
             liff.sendMessages([
                 {
                 type: 'text',
-                text: message,
+                text: "test",
                 },
             ])
             .then(() => {
