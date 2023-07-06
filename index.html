@@ -27,7 +27,7 @@
         }).catch((err) => {
             alert(err);
         }).then(() => {
-            getContext();
+            gettype();
         }).catch((err) => {
             alert(err);
         })
@@ -58,7 +58,7 @@
                 alert(err);
             });
         }
-      function getContext(){
+      function gettype(){
             liff.getContext()
             .then((context) => {
                 const type = context['type'];
