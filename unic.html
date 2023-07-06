@@ -19,15 +19,13 @@
         liff.init({
             liffId: liffId // Use own liffId
         }).then(() => {
-                document.getElementById('err').innerHTML= ""
+                document.getElementById('err').innerHTML= "login"
             })
             .catch((err) => {
                 document.getElementById('err').innerHTML= err
             })
         }).then(() => {
             sendMessage();
-        }).then(() => {
-            location.reload()
         })
 
         function getProfile(){
