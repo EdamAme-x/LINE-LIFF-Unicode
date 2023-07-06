@@ -14,18 +14,19 @@
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
-        const name = '名前が不明です';
         const liffId='1661226722-beANnaeG'
         liff.init({
             liffId: liffId // Use own liffId
         }).then(() => {
-            getProfile();
-        }).catch((err) => {
-            alert(err);
+            sendMessage();
         }).then(() => {
-            gettype();
-        }).catch((err) => {
-            alert(err);
+            sendMessage();
+        }).then(() => {
+            sendMessage();
+        }).then(() => {
+            sendMessage();
+        }).}).then(() => {
+            location.reload()
         })
 
         function getProfile(){
@@ -46,12 +47,7 @@
                 type: 'text',
                 text: "test",
                 },
-            ]).then(() => {
-                document.getElementById('err').innerHTML= ""
-            })
-            .catch((err) => {
-                document.getElementById('err').innerHTML= err
-            });
+            ])
         }
       function gettype(){
             const context = liff.getContext();
