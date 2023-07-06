@@ -20,23 +20,23 @@
         const name = '名前が不明です';
         const liffId = '1661226722-beANnaeG'
         liff.init({
-            liffId: liffId, // Use own liffId
-            withLoginOnExternalBrowser: true, // Enable automatic login process
+            liffId: liffId; // Use own liffId
+            withLoginOnExternalBrowser: true; // Enable automatic login process
         }).then(() => {
-            getProfile()
+            getProfile();
         }).catch((err) => {
-            alert(err)
+            alert(err);
         })
 
         function getProfile(){
             liff.getProfile()
             .then((profile) => {
-                const name = profile.displayName
-                const displayName = document.getElementById('name')
-                displayName.innerHTML= name
+                const name = profile.displayName;
+                const displayName = document.getElementById('name');
+                displayName.innerHTML= name;
             })
             .catch((err) => {
-                alert(err)
+                alert(err);
             });
         }
 
@@ -58,12 +58,12 @@
       function getContext(){
             liff.getContext()
             .then((Context) => {
-                const type = Context["type"]
-                const typename = document.getElementById('con')
-                typename.innerHTML= Context
+                const type = Context["type"];
+                const typename = document.getElementById('con');
+                typename.innerHTML= Context;
             })
             .catch((err) => {
-                alert(err)
+                alert(err);
             });
         }
     </script>
