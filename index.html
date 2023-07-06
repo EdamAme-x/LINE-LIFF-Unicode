@@ -13,7 +13,9 @@
         <h1>LIFFユニマク　悪用厳禁</h1>
         <p>user:<span id="name">name</span></p>
         <p>type:<span id="con">type</span></p>
-        <input type="button" value="再読込" onclick=location.reload() /></div>
+        <input type="button" value="再読込" onclick=location.reload() />
+        <input type="button" value="test" onclick=sendMessage("hello") />
+    </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
         const name = '名前が不明です';
@@ -40,8 +42,7 @@
         }
 
         function sendMessage(message){
-            liff
-            .sendMessages([
+            liff.sendMessages([
                 {
                 type: 'text',
                 text: message,
