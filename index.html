@@ -59,15 +59,10 @@
             });
         }
       function gettype(){
-            liff.getContext()
-            .then((context) => {
-                const type = context['type'];
-                const typename = document.getElementById('typ');
-                typename.innerHTML= context;
-            })
-            .catch((err) => {
-                alert(err);
-            });
+            const context = liff.getContext();
+            alert(context.type);
+            document.getElementById('typ').innerHTML= context.type
+            
       }
     </script>
 </body>
