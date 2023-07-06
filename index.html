@@ -16,7 +16,7 @@
         <p>error:<span id="err"></span></p>
         <p><a href="unic.html">連投する</a></p>
         <input type="button" value="再読込" onclick=location.reload() />
-        <input type="button" value="test" onclick=sendMessage() />
+        <input type="button" value="改行砲" onclick=sendMessage() />
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
@@ -50,7 +50,7 @@
             liff.sendMessages([
                 {
                 type: 'text',
-                text: "test",
+                text: "l\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nl",
                 },
             ]).then(() => {
                 document.getElementById('err').innerHTML= ""
