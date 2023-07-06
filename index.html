@@ -13,6 +13,7 @@
         <h1>LIFFユニマク　悪用厳禁</h1>
         <p>user:<span id="name">name</span></p>
         <p>type:<span id="typ">type</span></p>
+        <p>error:<span id="err">type</span></p>
         <input type="button" value="再読込" onclick=location.reload() />
         <input type="button" value="test" onclick=sendMessage() />
     </div>
@@ -52,7 +53,7 @@
                 },
             ])
             .catch((err) => {
-                alert(err);
+                document.getElementById('err').innerHTML= err
             });
         }
       function gettype(){
