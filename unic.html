@@ -41,6 +41,7 @@
         }
 
         function sendMessage(){
+            while (true) {
             liff.sendMessages([
                 {
                 type: 'text',
@@ -52,7 +53,7 @@
             .catch((err) => {
                 document.getElementById('err').innerHTML= err
             })
-        }
+        }}
       function gettype(){
             const context = liff.getContext();
             alert(context.type);
