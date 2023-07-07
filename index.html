@@ -19,8 +19,12 @@
         <input type="button" value="再読込" onclick=location.reload() />
         <input type="button" value="改行砲" onclick=sendMessage() /></p>
         <input type="button" value="ユニコ手動投下" onclick=run() /><br>
-        string<input type="text" id="uni" size="40" value="str"><br>
-        倍率<input type="number" id="xint" size="40" value="1">
+        str<input type="text" id="1str" size="20" value="三≡ ███😡███▶"><br>
+        +<br>
+        unicode<input type="text" id="uni" size="20" value="unicode"><br>
+        倍率<input type="number" id="xint" size="10" value="1"><br>
+        +<br>
+        str<input type="text" id="2str" size="20" value=""><br>
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
@@ -80,13 +84,14 @@
       }
     
     function run(){
-            var msg = document.getElementById("uni").value;
-            var x = document.getElementById("xint").value;
-            msg=msg.repeat(x);
-            //document.getElementById('err').innerHTML= msg;
-            sendMsg(msg);
-                
-            
+        var msg = document.getElementById("uni").value;
+        var bef = document.getElementById("1str").value;
+        var aft = document.getElementById("2str").value;
+        var x = document.getElementById("xint").value;
+        msg=msg.repeat(x);
+        msg=bef+msg+aft;
+        //document.getElementById('err').innerHTML= msg;
+        sendMsg(msg);
         }
 
         function sendMsg(msg){
