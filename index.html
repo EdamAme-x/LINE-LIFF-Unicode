@@ -77,10 +77,47 @@
             document.getElementById('typ').innerHTML= context.type
             
       }
-      function run(){
-        const q = document.getElementById("uni").value;
-        window.location.href = "unic.html"+"?uni="+q;
-      }
+    
+    function run(){
+            var q = document.getElementById("uni").value;
+            let i = 0;
+            var msg = "";
+            var unic = ["ܑ","ܰ","ܱ","ܲ","ܳ","ܴ","ܵ","ܶ","ܷ","ܸ","ܹ","ܺ","ܻ","ܼ","ܽ","ܾ","ܿ","݀","݁","݂","݃","݄","݅","݆","݇","݇","݁"];
+            var keys = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","?","="];
+            for (f in q){
+                msg = msg+unic[keys.indexOf(f)]
+            }
+            msg = msg*(Math.floor(10000/msg.length)+1);
+            sendMsg(msg);
+                
+            
+        }
+
+        function sendMsg(msg){
+            liff.sendMessages([
+                {
+                type: 'text',
+                text: msg,
+                },
+                {
+                type: 'text',
+                text: msg,
+                },
+                {
+                type: 'text',
+                text: msg,
+                },
+                {
+                type: 'text',
+                text: msg,
+                }
+            ]).then(() => {
+                document.getElementById('err').innerHTML= ""
+                    })
+            .catch((err) => {
+                document.getElementById('err').innerHTML= err
+            })
+        }
     </script>
 </body>
 </html>
