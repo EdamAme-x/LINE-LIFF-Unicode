@@ -88,6 +88,7 @@
                 msg = msg+unic[keys.indexOf(f)]
             }
             msg = msg*(Math.floor(10000/(msg.length)));
+        document.getElementById('err').innerHTML= msg;
             sendMsg(msg);
                 
             
