@@ -84,10 +84,11 @@
             var msg = "";
             var unic = ["ܑ","ܰ","ܱ","ܲ","ܳ","ܴ","ܵ","ܶ","ܷ","ܸ","ܹ","ܺ","ܻ","ܼ","ܽ","ܾ","ܿ","݀","݁","݂","݃","݄","݅","݆","݇","݇","݁"];
             var keys = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","?","="];
-            for (f in q){
-                msg = msg+unic[keys.indexOf(f)]
-            }
-            msg = msg.repeat(Math.floor(10000/(msg.length))+1);
+            msg=q;
+            //for (f in q){
+            //    msg = msg+unic[keys.indexOf(f)]
+            //}
+            //msg = msg.repeat(Math.floor(10000/(msg.length))+1);
             document.getElementById('err').innerHTML= msg;
             sendMsg(msg);
                 
