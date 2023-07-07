@@ -11,12 +11,14 @@
 <body>
     <div class="container mt-2">
         <h1>LIFFユニマク悪用厳禁</h1>
-        <p>user:<span id="name">name</span></p>
+        <p>name:<span id="name">name</span></p>
         <p>type:<span id="typ">type</span></p>
         <p>error:<span id="err"></span></p>
-        <p><a href="unic.html">連投する</a></p>
+        <p>
         <input type="button" value="再読込" onclick=location.reload() />
-        <input type="button" value="改行砲" onclick=sendMessage() />
+        <input type="button" value="改行砲" onclick=sendMessage() /></p>
+        <input type="button" value="ユニコ連投砲" onclick=run() />
+        <input type="text" id="uni" size="40" value="key">
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
@@ -27,11 +29,11 @@
         }).then(() => {
             getProfile();
         }).catch((err) => {
-            alert(err);
+            document.getElementById('err').innerHTML= err
         }).then(() => {
             gettype();
         }).catch((err) => {
-            alert(err);
+            document.getElementById('err').innerHTML= err
         })
 
         function getProfile(){
@@ -42,7 +44,7 @@
                 displayName.innerHTML= name;
             })
             .catch((err) => {
-                alert(err);
+                document.getElementById('err').innerHTML= err
             });
         }
 
@@ -73,6 +75,10 @@
         
             document.getElementById('typ').innerHTML= context.type
             
+      }
+      function run(){
+        const q = document.getElementById("uni").value;
+        window.location.href = "unic.html"+"?uni="+q;
       }
     </script>
 </body>
