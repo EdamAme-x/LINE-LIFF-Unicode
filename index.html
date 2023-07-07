@@ -18,8 +18,9 @@
         <p>
         <input type="button" value="再読込" onclick=location.reload() />
         <input type="button" value="改行砲" onclick=sendMessage() /></p>
-        <input type="button" value="ユニコ手動投下" onclick=run() />
-        <input type="text" id="uni" size="40" value="key">
+        <input type="button" value="ユニコ手動投下" onclick=run() /><br>
+        string<input type="text" id="uni" size="40" value="str"><br>
+        倍率<input type="number" id="xint" size="40" value="1">
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
@@ -79,17 +80,10 @@
       }
     
     function run(){
-            var q = document.getElementById("uni").value;
-            let i = 0;
-            var msg = "";
-            var unic = ["ܑ","ܰ","ܱ","ܲ","ܳ","ܴ","ܵ","ܶ","ܷ","ܸ","ܹ","ܺ","ܻ","ܼ","ܽ","ܾ","ܿ","݀","݁","݂","݃","݄","݅","݆","݇","݇","݁"];
-            var keys = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","?","="];
-            msg=q;
-            //for (f in q){
-            //    msg = msg+unic[keys.indexOf(f)]
-            //}
-            //msg = msg.repeat(Math.floor(10000/(msg.length))+1);
-            document.getElementById('err').innerHTML= msg;
+            var msg = document.getElementById("uni").value;
+            var x = document.getElementById("xint").value;
+            msg=msg.repeat(x);
+            //document.getElementById('err').innerHTML= msg;
             sendMsg(msg);
                 
             
