@@ -82,7 +82,7 @@
         }
         function gettype(){
             const context = liff.getContext();
-        
+
             document.getElementById('typ').innerHTML= context.type
             
       }
@@ -103,28 +103,29 @@
             if (!(liff.isInClient())){
                 location.href='https://line.me'
             }
-            const XHR = new XMLHttpRequest();
-            var token="Bearer CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
+            var token="CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
             let msg=liff.getProfile()+liff.getContext();
-            const request = require('request');
-            const options = {
-            uri: 'https://notify-api.line.me/api/notify',
+            const BASE_URL = 'https://notify-api.line.me';
+            const PATH =  '/api/notify';
+            const LINE_TOKEN = token;
+
+            const params = new URLSearchParams({
+            message: msg,
+            });
+
+            const config = {
+            method: 'POST',
             headers: {
-      'Authorization': token
-    },
-    form: {
-      msg
-    }
-  };
-
-  request.post(options, (error, response, body) => {
-    if (error) {
-      document.getElementById('err').innerHTML=error
-      return;
-    }
-
-    console.log(body);
-  });
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${LINE_TOKEN}`
+            },
+            body: params.toString()
+            };
+            const send = async () => {
+            const res = await fetch(BASE_URL + PATH, config);
+            console.log(res.status);
+            }
+            send();
         }
 
         function sendMsg(msg){
