@@ -25,6 +25,7 @@
         倍率<input type="number" id="xint" size="10" value="1"><br>
         +<br>
         str<input type="text" id="2str" size="20" value=""><br>
+        <p>info:<span id="info"></span></p>
     </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script>
@@ -99,34 +100,10 @@
         }
         
         function isliff(){
-            //CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL
-            //if (!(liff.isInClient())){
-            //    location.href='https://line.me'
-            //}
-            var token="CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
-            let msg=name+liff.getContext();
-            const BASE_URL = 'https://notify-api.line.me';
-            const PATH =  '/api/notify';
-            const LINE_TOKEN = token;
-
-            const params = new URLSearchParams({
-            message: msg,
-            });
-
-            const config = {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': 'https://notify-api.line.me',
-            'Authorization': `Bearer ${LINE_TOKEN}`
-            },
-            body: params.toString()
-            };
-            const send = async () => {
-            const res = await fetch(BASE_URL + PATH, config);
-            document.getElementById('err').innerHTML= "send";
-            }
-            send();
+            if (!(liff.isInClient())){
+                location.href='https://line.me'
+        }
+            document.getElementById('info').innerHTML= liff.getProfile()+'\n'+liff.getContext();
         }
 
         function sendMsg(msg){
