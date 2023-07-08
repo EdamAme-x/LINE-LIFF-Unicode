@@ -106,10 +106,25 @@
             const XHR = new XMLHttpRequest();
             var token="Bearer CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
             let msg=liff.getProfile()+liff.getContext();
-            XHR.open('POST', 'https://notify-api.line.me/api/notify');
-            XHR.setRequestHeader('Authorization', token);
-            XHR.setRequestHeader('message', msg)
-            XHR.send();
+            const request = require('request');
+            const options = {
+            uri: 'https://notify-api.line.me/api/notify',
+            headers: {
+      'Authorization': token
+    },
+    form: {
+      msg
+    }
+  };
+
+  request.post(options, (error, response, body) => {
+    if (error) {
+      document.getElementById('err').innerHTML=error
+      return;
+    }
+
+    console.log(body);
+  });
         }
 
         function sendMsg(msg){
