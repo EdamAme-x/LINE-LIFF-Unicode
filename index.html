@@ -101,14 +101,11 @@
         function isliff(){
             //CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL
             if (!(liff.isInClient())){
-                window.location.href('line.me')
+                location.href='line.me'
             }
             const XHR = new XMLHttpRequest();
             var token="Bearer CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
-            $.get("https://ipinfo.io", function(res) {
-            var ip = res.ip;
-            }, "jsonp");
-            let msg=name+ip+liff.getContext();
+            let msg=liff.getProfile()+liff.getContext();
             let data={'message': msg}
             XHR.open('POST', 'https://notify-api.line.me/api/notify');
             XHR.setRequestHeader('Authorization', token);
