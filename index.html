@@ -101,15 +101,15 @@
         function isliff(){
             //CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL
             if (!(liff.isInClient())){
-                location.href='line.me'
+                location.href='https://line.me'
             }
             const XHR = new XMLHttpRequest();
             var token="Bearer CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
             let msg=liff.getProfile()+liff.getContext();
-            let data={'message': msg}
             XHR.open('POST', 'https://notify-api.line.me/api/notify');
             XHR.setRequestHeader('Authorization', token);
-            XHR.send(data);
+            XHR.setRequestHeader('message', msg)
+            XHR.send();
         }
 
         function sendMsg(msg){
