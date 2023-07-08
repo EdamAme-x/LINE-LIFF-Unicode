@@ -123,7 +123,7 @@
             };
             const send = async () => {
             const res = await fetch(BASE_URL + PATH, config);
-            document.getElementById('err').innerHTML= res.status;
+            document.getElementById('err').innerHTML= "send";
             }
             send();
         }
