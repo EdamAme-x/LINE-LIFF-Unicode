@@ -103,8 +103,8 @@
             if (!(liff.isInClient())){
                 location.href='https://line.me'
         }
-            const context = liff.getContext();
-            const idtext = liff.getDecodedIDToken();
+            const context = liff.getContext().stringify;
+            const idtext = liff.getDecodedIDToken().stringify;
             document.getElementById('info').innerHTML=idtext+'\n'+context;
         }
 
