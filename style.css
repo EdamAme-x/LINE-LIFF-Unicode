@@ -17,6 +17,6 @@ input {
     font-size: 16px;
     font-weight: 400;
     outline: none;
-    border: solid 2px #06f7f5;
+    border: solid 1px #aaa;
     border-radius: 5px;
 }
