@@ -54,9 +54,6 @@
             })
         }
 
-      
-        const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 
         function run(){
             tr=true;
@@ -68,6 +65,7 @@
             msg=bef+msg+aft;
         //document.getElementById('err').innerHTML= msg;
             while (tr) {
+                const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                 sendMessage(msg);
                 await _sleep(750);
                 sendMessage(msg);
