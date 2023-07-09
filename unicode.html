@@ -22,16 +22,18 @@
         <p>unicode<input type="text" id="uni" size="20" value="͢"></p>
         <p>倍率<input type="number" id="xint" size="5" value="10000"></p>
         <p>　　　　+</p>
-        <input type="text" id="2str" size="20" value="">
+        <input type="text" id="2str" size="20" value=""><br>
+        <button type="button" onclick=setc() >設定を保存</button><button type="button" onclick=getc() >設定をロード</button>
         </section>
     
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script>
         const liffId='1661226722-beANnaeG'
         liff.init({
             liffId: liffId // Use own liffId
         }).then(() => {
-                document.getElementById('err').innerHTML= "login"
+                getc()
         })
         .catch((err) => {
                 document.getElementById('err').innerHTML= err
@@ -69,9 +71,26 @@
             })
         }
 
+        function setc(){
+            var msg = document.getElementById("uni").value;
+            var bef = document.getElementById("1str").value;
+            var aft = document.getElementById("2str").value;
+            var x = document.getElementById("xint").value;
+            Cookies.set('uni', msg);
+            Cookies.set('1str', bef);
+            Cookies.set('2str', aft);
+            Cookies.set('xint', x);
+        }
 
+        function getc(){
+            document.getElementById("uni").value=Cookies.get('uni');
+            document.getElementById("1str").value=Cookies.get('1str');
+            document.getElementById("2str").value=Cookies.get('2str');
+            document.getElementById("xint").value=Cookies.get('xint');
+        }
+        
         function run(){
-            tr=true;
+            setc();
             var msg = document.getElementById("uni").value;
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
