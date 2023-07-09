@@ -13,12 +13,12 @@
         <h1>LIFFユニマク 自動連投</h1>
         
         <p>log:<span id="err"></span></p>
+        <input type="number" id="xxint" size="5" value="100">回　<input type="number" id="rate" size="5" value="500">間隔<br>
         <input type="button" value="連投開始" onclick=run() /><br>
-        <input type="button" value="連投停止" onclick=stop() /><br>
         <input type="text" id="1str" size="20" value=""><br>
         +<br>
         unicode<input type="text" id="uni" size="20" value="͢͢"><br>
-        倍率<input type="number" id="xint" size="10" value="5120"><br>
+        倍率<input type="number" id="xint" size="5" value="5120"><br>
         +<br>
         <input type="text" id="2str" size="20" value=""><br>
         
@@ -36,11 +36,24 @@
         })
 
 
-        var tr=false;
-
-        function stop(){
-            tr=false;
-        }
+        function loopSleep(_loopLimit,_interval, _mainFunc){
+            var loopLimit = _loopLimit;
+            var interval = _interval;
+            var mainFunc = _mainFunc;
+            var i = 0;
+            var loopFunc = function () {
+            var result = mainFunc(i);
+                if (result === false) {
+                    // break機能
+                    return;
+                }
+                i = i + 1;
+                if (i < loopLimit) {
+                    setTimeout(loopFunc, interval);
+                }
+                }
+                loopFunc();
+        }        
 
         function getProfile(){
             liff.getProfile()
@@ -61,18 +74,14 @@
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
             var x = document.getElementById("xint").value;
+            var xx = document.getElementById("xxint").value;
+            var rate = document.getElementById("rate").value;
             msg=msg.repeat(x);
             msg=bef+msg+aft;
         //document.getElementById('err').innerHTML= msg;
-            while (tr) {
-                const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-                sendMessage(msg);
-                await _sleep(750);
-                sendMessage(msg);
-                await _sleep(750);
-                sendMessage(msg);
-                await _sleep(750);
-            }
+            loopSleep(xx,rate,function(i){
+            sendMessage(msg);
+            });
         }
         
         function sendMessage(msg){
