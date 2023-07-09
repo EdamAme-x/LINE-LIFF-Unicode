@@ -1,3 +1,7 @@
+body {
+  background-color: #000;
+}
+
 button {
     padding: 4px 12px;
     outline: none;
