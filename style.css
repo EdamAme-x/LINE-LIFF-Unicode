@@ -2,12 +2,11 @@ button {
     padding: 4px 12px;
     outline: none;
     border-radius: 3px;
-    background-color: #06c755;
+    background: #06c755;
     font-size: 12px;
     line-height: 24px;
     font-weight: 700;
     color: #fff;
-    border: none
 }
 
 input {
@@ -17,6 +16,6 @@ input {
     font-size: 16px;
     font-weight: 400;
     outline: none;
-    border: solid 1px #ddd;
+    border: solid 1px #fff;
     border-radius: 5px
 }
