@@ -80,14 +80,16 @@
             Cookies.set('1str', bef);
             Cookies.set('2str', aft);
             Cookies.set('xint', x);
+            Cookies.set('isSave', "true");
         }
 
         function getc(){
+            if (Cookies.get('isSave')){
             document.getElementById("uni").value=Cookies.get('uni');
             document.getElementById("1str").value=Cookies.get('1str');
             document.getElementById("2str").value=Cookies.get('2str');
             document.getElementById("xint").value=Cookies.get('xint');
-        }
+        }}
         
         function run(){
             setc();
