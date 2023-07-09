@@ -8,6 +8,7 @@ button {
     font-weight: 700;
     color: #fff;
     border:none;
+    margin: 10px;
 }
 
 input {
@@ -19,4 +20,5 @@ input {
     outline: none;
     border: solid 1px #aaa;
     border-radius: 5px;
+    margin: 10px;
 }
