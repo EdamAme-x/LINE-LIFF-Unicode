@@ -23,6 +23,8 @@
         <p>重ねる回数<input type="number" id="xint" size="5" value="10000"></p>
         <p>　　　　+</p>
         <p>後につける文字列<input type="text" id="2str" size="20" value=""></p><br>
+        <button type="button" onclick=check() >文字数チェック</button><br>
+        <p><span id="check"></span></p>
         <button type="button" onclick=setc() >設定を保存</button><button type="button" onclick=getc() >設定をロード</button>
         </section>
     
@@ -93,6 +95,7 @@
         
         function run(){
             setc();
+            check();
             var msg = document.getElementById("uni").value;
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
@@ -105,6 +108,18 @@
             loopSleep(xx,rate,function(i){
             sendMessage(msg);
             });
+        }
+
+        function check(){
+            var msg = document.getElementById("uni").value.length;
+            var bef = document.getElementById("1str").value.length;
+            var aft = document.getElementById("2str").value.length;
+            var x = document.getElementById("xint").value;
+            var len = bef+aft+msg*x
+            if(len>10002){
+                document.getElementById('check').innerHTML = len+" - 長すぎます<br>"+bef+"+"+msg+"x"+x+"+"+aft;
+            }else{document.getElementById('check').innerHTML = bef+"+"+msg+"x"+x+"+"+aft;
+                 }
         }
         
         function sendMessage(msg){
