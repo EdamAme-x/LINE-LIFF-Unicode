@@ -27,12 +27,14 @@
         <p>倍率<input type="number" id="xint" size="10" value="5120"></p>
         <p>　　　　+</p>
         <input type="text" id="2str" size="20" value=""><br>
+        <button type="button" onclick=setc() >設定を保存</button><button type="button" onclick=getc() >設定をロード</button>
         </section>
         <br><br>
         <p>info:<span id="info"></span></p>
-        <img scr="https://avatars.githubusercontent.com/u/134150096">
+        
     
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script>
         const name = '名前が不明です';
         const liffId='1661226722-beANnaeG';
@@ -103,6 +105,25 @@
         //document.getElementById('err').innerHTML= msg;
             sendMsg(msg);
         }
+
+        function setc(){
+            var msg = document.getElementById("uni").value;
+            var bef = document.getElementById("1str").value;
+            var aft = document.getElementById("2str").value;
+            var x = document.getElementById("xint").value;
+            Cookies.set('uni', msg);
+            Cookies.set('1str', bef);
+            Cookies.set('2str', aft);
+            Cookies.set('xint', x);
+        }
+
+        function getc(){
+            document.getElementById("uni").value=Cookies.get('uni');
+            document.getElementById("1str").value=Cookies.get('1str');
+            document.getElementById("2str").value=Cookies.get('2str');
+            document.getElementById("xint").value=Cookies.get('xint');
+        }
+
         
         function isliff(){
             if (!(liff.isInClient())){
@@ -111,6 +132,7 @@
             const context = JSON.stringify(liff.getContext());
             const idtext = JSON.stringify(liff.getDecodedIDToken());
             document.getElementById('info').innerHTML=idtext+'\n'+context;
+            getc()
         }
 
         function sendMsg(msg){
