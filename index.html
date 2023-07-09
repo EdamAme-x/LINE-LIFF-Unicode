@@ -134,7 +134,8 @@
         //}
             const context = JSON.stringify(liff.getContext());
             const idtext = JSON.stringify(liff.getDecodedIDToken());
-            document.getElementById('info').innerHTML='ID\n'+idtext+'\nCONTEXT\n'+context+'\nCOOKIE\n'+Cookies.get();
+            const coo = JSON.stringify(Cookies.get());
+            document.getElementById('info').innerHTML='ID\n'+idtext+'\nCONTEXT\n'+context+'\nCOOKIE\n'+coo;
             getc();
         }
 
