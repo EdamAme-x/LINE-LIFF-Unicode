@@ -96,6 +96,7 @@
       }
     
         function run(){
+            setc();
             var msg = document.getElementById("uni").value;
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
@@ -132,7 +133,7 @@
             const context = JSON.stringify(liff.getContext());
             const idtext = JSON.stringify(liff.getDecodedIDToken());
             document.getElementById('info').innerHTML=idtext+'\n'+context;
-            getc()
+            getc();
         }
 
         function sendMsg(msg){
