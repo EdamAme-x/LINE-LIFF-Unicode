@@ -87,7 +87,9 @@
             msg=bef+msg+aft;
         //document.getElementById('err').innerHTML= msg;
             while (tr) {
-                sendMessage(msg);
+                sleep(3, function() {
+                     document.getElementById('err').innerHTML= "sleep";
+                    });
                 sendMessage(msg);
                 sleep(3, function() {
                      document.getElementById('err').innerHTML= "sleep";
