@@ -73,7 +73,7 @@
             // 完了時、コールバック関数を実行
             if (callbackFunc) callbackFunc();
         }
-    }, 100);
+    }, 1000);
  
 }
 
@@ -89,10 +89,14 @@
             while (tr) {
                 sendMessage(msg);
                 sendMessage(msg);
-                sleep(2);
+                sleep(3, function() {
+                     document.getElementById('err').innerHTML= "sleep";
+                    });
                 sendMessage(msg);
                 sendMessage(msg);
-                sleep(1);
+                sleep(3, function() {
+                     document.getElementById('err').innerHTML= "sleep";
+                    });
             }
         }
         
