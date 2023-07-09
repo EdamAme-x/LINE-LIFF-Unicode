@@ -28,7 +28,7 @@
         <p>　　　　+</p>
         <p>後につける文字列<input type="text" id="2str" size="20" value=""></p><br>
         <button type="button" onclick=check() >文字数チェック</button><br>
-        <p>info:<span id="check"></span></p>
+        <p><span id="check"></span></p>
         <button type="button" onclick=setc() >設定を保存</button><button type="button" onclick=getc() >設定をロード</button>
         </section>
         <br><br>
@@ -99,6 +99,7 @@
     
         function run(){
             setc();
+            check();
             var msg = document.getElementById("uni").value;
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
