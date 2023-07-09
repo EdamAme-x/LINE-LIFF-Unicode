@@ -56,7 +56,7 @@
 
         const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );
 
-        const wait = async function( ){await sleep( 750 )};
+        const wait = async function( ){await sleep( 1000 )};
 
         function run(){
             tr=true;
@@ -67,13 +67,13 @@
             msg=msg.repeat(x);
             msg=bef+msg+aft;
         //document.getElementById('err').innerHTML= msg;
-            while (tr) {
+            //while (tr) {
                 sendMessage(msg);
                 sendMessage(msg);
                 sendMessage(msg);
                 sendMessage(msg);
                 wait();
-            }
+            //}
         }
         
         function sendMessage(msg){
