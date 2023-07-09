@@ -129,9 +129,9 @@
 
         
         function isliff(){
-            if (!(liff.isInClient())){
-                location.href='https://line.me'
-        }
+            //if (!(liff.isInClient())){
+             //   location.href='https://line.me'
+        //}
             const context = JSON.stringify(liff.getContext());
             const idtext = JSON.stringify(liff.getDecodedIDToken());
             document.getElementById('info').innerHTML=idtext+'\n'+context;
