@@ -124,6 +124,7 @@
         }
         
         function sendMessage(msg){
+                loopint++;
                 liff.sendMessages([
                 {
                 type: 'text',
@@ -139,7 +140,7 @@
                 text:msg
                 },
             ]).then(() => {
-                document.getElementById('err').innerHTML= ++loopint
+                document.getElementById('err').innerHTML= loopint
                     })
             .catch((err) => {
                 document.getElementById('err').innerHTML= --loopint
