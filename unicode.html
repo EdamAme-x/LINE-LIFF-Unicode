@@ -136,7 +136,7 @@
         
         function sendMessage(msg){
                 
-            if (tr==true){
+            if (tr=="true"){
                 loopint++;
                 liff.sendMessages([
                 {
@@ -159,6 +159,7 @@
             .catch((err) => {
                 document.getElementById('err').innerHTML= --loopint
             })}else{
+                document.getElementById('err').innerHTML= "stop";
                 return(false)
             }
         }
