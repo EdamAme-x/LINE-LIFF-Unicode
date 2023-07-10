@@ -13,7 +13,7 @@
     
         <h1>LIFFユニマク 自動連投</h1>
         
-        <p>log:<span id="err"></span></p>
+        <p>:<span id="err"></span></p>
         <p><input type="number" id="xxint" size="5" value="100">回<br><input type="number" id="rate" size="5" value="700">間隔<br></p>
         <span id="but"><button type="button" onclick=run() >連投開始</button></span><button type="button" onclick=check() >文字数チェック</button><br>
         <p><span id="check"></span></p>
@@ -40,7 +40,8 @@
                 document.getElementById('err').innerHTML= err
         })
 
-        var loopint = 0
+        var loopint = 0;
+        var tr =true;
         
         function loopSleep(_loopLimit,_interval, _mainFunc){
             var loopLimit = _loopLimit;
@@ -92,11 +93,18 @@
             document.getElementById("2str").value=Cookies.get('2str');
             document.getElementById("xint").value=Cookies.get('xint');
         }}
+
+        function stop(){
+            tr=false
+        }
         
         function run(){
+            tr=true;
+            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=stop() >連投停止</button>";
             loopint=0;
             setc();
             check();
+            
             var msg = document.getElementById("uni").value;
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
@@ -109,14 +117,16 @@
             loopSleep(xx,rate,function(i){
             sendMessage(msg);
             });
+            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
         }
 
         function check(){
+           
             var msg = document.getElementById("uni").value.length;
             var bef = document.getElementById("1str").value.length;
             var aft = document.getElementById("2str").value.length;
             var x = document.getElementById("xint").value;
-            var len = bef+aft+msg*x
+            var len = bef+aft+msg*x;
             if(len>10002){
                 document.getElementById('check').innerHTML = len+" - 長すぎます<br>"+bef+"+"+msg+"x"+x+"+"+aft;
             }else{document.getElementById('check').innerHTML = len+"<br>"+bef+"+"+msg+"x"+x+"+"+aft;
@@ -125,6 +135,7 @@
         
         function sendMessage(msg){
                 loopint++;
+            if (tr==true){
                 liff.sendMessages([
                 {
                 type: 'text',
@@ -144,7 +155,9 @@
                     })
             .catch((err) => {
                 document.getElementById('err').innerHTML= --loopint
-            })
+            })}else{
+                return(false)
+            }
         }
       function gettype(){
             const context = liff.getContext();
