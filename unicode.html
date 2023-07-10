@@ -103,9 +103,7 @@
             tr=true;
             document.getElementById('but').innerHTML= "<button type=\"button\" onclick=stop() >連投停止</button>";
             loopint=0;
-            setc();
-            check();
-            
+            setc();            
             var msg = document.getElementById("uni").value;
             var bef = document.getElementById("1str").value;
             var aft = document.getElementById("2str").value;
@@ -118,7 +116,7 @@
             loopSleep(xx,rate,function(i){
             sendMessage(msg);
             });
-            document.getElementById('but').innerHTML=""
+            
                 
         }
 
@@ -154,11 +152,13 @@
                 text:msg
                 },
             ]).then(() => {
-                document.getElementById('err').innerHTML= loopint
+                document.getElementById('err').innerHTML= loopint;
+                document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投停止</button>"
                     })
             .catch((err) => {
                 document.getElementById('err').innerHTML= --loopint
             })}else{
+                document.getElementById('but').innerHTML= ""
                 return(false)
             }
         }
