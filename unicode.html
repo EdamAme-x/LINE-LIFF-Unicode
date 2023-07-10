@@ -97,6 +97,7 @@
 
         function stop(){
             tr=false
+            document.getElementById('but').innerHTML= ""
         }
         
         function run(){
@@ -121,7 +122,7 @@
         }
 
         function check(){
-            
+            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>";
             var msg = document.getElementById("uni").value.length;
             var bef = document.getElementById("1str").value.length;
             var aft = document.getElementById("2str").value.length;
@@ -130,13 +131,14 @@
             if(len>10002){
                 document.getElementById('check').innerHTML = len+" - 長すぎます<br>"+bef+"+"+msg+"x"+x+"+"+aft;
             }else{document.getElementById('check').innerHTML = len+"<br>"+bef+"+"+msg+"x"+x+"+"+aft;
-                  document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
+                  
                  }
         }
         
         function sendMessage(msg){
-                loopint++;
+                
             if (tr==true){
+                loopint++;
                 liff.sendMessages([
                 {
                 type: 'text',
@@ -157,7 +159,7 @@
                     })
             .catch((err) => {
                 document.getElementById('err').innerHTML= --loopint
-            }else{
+            }}else{
                 return(false)
             }
         }
