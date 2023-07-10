@@ -153,12 +153,9 @@
                 text:msg
                 },
             ]).then(() => {
-                document.getElementById('err').innerHTML= loopint;
-                document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投停止</button>"
+                document.getElementById('err').innerHTML= tr;
                     })
-            .catch((err) => {
-                document.getElementById('err').innerHTML= --loopint
-            })}else{
+            }else{
                 document.getElementById('err').innerHTML= "stop";
                 return(false)
             }
