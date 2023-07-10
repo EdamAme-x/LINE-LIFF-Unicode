@@ -40,7 +40,8 @@
                 document.getElementById('err').innerHTML= err
         })
 
-
+        var loopint = 0
+        
         function loopSleep(_loopLimit,_interval, _mainFunc){
             var loopLimit = _loopLimit;
             var interval = _interval;
@@ -93,6 +94,7 @@
         }}
         
         function run(){
+            loopint=0;
             setc();
             check();
             var msg = document.getElementById("uni").value;
@@ -137,10 +139,10 @@
                 text:msg
                 },
             ]).then(() => {
-                document.getElementById('err').innerHTML= ""
+                document.getElementById('err').innerHTML= ++loopint
                     })
             .catch((err) => {
-                document.getElementById('err').innerHTML= err
+                document.getElementById('err').innerHTML= --loopint
             })
         }
       function gettype(){
