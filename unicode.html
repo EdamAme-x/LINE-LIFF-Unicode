@@ -127,10 +127,10 @@
             var aft = document.getElementById("2str").value.length;
             var x = document.getElementById("xint").value;
             var len = bef+aft+msg*x;
-            if(len>10002){
+            if(len>10050){
                 document.getElementById('check').innerHTML = len+" - 長すぎます<br>"+bef+"+"+msg+"x"+x+"+"+aft;
             }else{document.getElementById('check').innerHTML = len+"<br>"+bef+"+"+msg+"x"+x+"+"+aft;
-                  
+                  document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
                  }
         }
         
