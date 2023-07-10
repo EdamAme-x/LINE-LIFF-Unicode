@@ -87,7 +87,7 @@
         }
 
         function getc(){
-            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
+            
             if (Cookies.get('isSave')){
             document.getElementById("uni").value=Cookies.get('uni');
             document.getElementById("1str").value=Cookies.get('1str');
@@ -118,11 +118,12 @@
             loopSleep(xx,rate,function(i){
             sendMessage(msg);
             });
-            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
+            document.getElementById('but').innerHTML=""
+                
         }
 
         function check(){
-           
+            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
             var msg = document.getElementById("uni").value.length;
             var bef = document.getElementById("1str").value.length;
             var aft = document.getElementById("2str").value.length;
@@ -131,6 +132,7 @@
             if(len>10002){
                 document.getElementById('check').innerHTML = len+" - 長すぎます<br>"+bef+"+"+msg+"x"+x+"+"+aft;
             }else{document.getElementById('check').innerHTML = len+"<br>"+bef+"+"+msg+"x"+x+"+"+aft;
+                  
                  }
         }
         
