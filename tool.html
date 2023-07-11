@@ -78,15 +78,13 @@
             //msg=msg.repeat(x);
             //msg=bef+msg+aft;
             //document.getElementById('err').innerHTML= msg
-            var msg = document.getElementById("msgg").value;
+            var msg = JSON.parse(document.getElementById("msgg").value);
             sendMessage(msg);
         }
         function sendMessage(msg){
-                liff.sendMessages([
-                {
+                liff.sendMessages(
                 msg
-                },
-            ]).catch((err) => {
+            ).catch((err) => {
                 document.getElementById('err').innerHTML= err
         })
         }
