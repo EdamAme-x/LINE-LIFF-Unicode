@@ -15,6 +15,8 @@
         <p>name:<span id="name">name</span></p>
         <p>type:<span id="typ">type</span></p>
         <p>error:<span id="err"></span></p>
+        <button type="button" onclick=tool() >liffツール</button>
+        <button type="button" onclick=sendMsg() >ユニコ自動投下</button>
         <p><a href="tool.html">liffツール</a></p>
         <p><a href="unicode.html">ユニコ自動投下</a></p>
         <br><br>
@@ -62,6 +64,13 @@
             document.getElementById('typ').innerHTML= context.type
             
       }
+        function tool(){
+            location.href='tool.html'
+        }
+
+        function sendMsg(){
+            location.href='unicode.html'
+        }
         
         function isliff(){
             if (!(liff.isInClient())){
