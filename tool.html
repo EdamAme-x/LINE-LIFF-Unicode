@@ -82,7 +82,7 @@
             //document.getElementById('err').innerHTML= msg
             var msg = document.getElementById("msgg").value;
             Cookies.set('rawjson', msg);
-            JSON.parse(msg);
+            msg = JSON.parse(msg);
             sendMessage(msg);
         }
         function sendMessage(msg){
