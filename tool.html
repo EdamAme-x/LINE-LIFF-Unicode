@@ -86,9 +86,9 @@
                 {
                 msg
                 },
-            ]).then(() => {
-                document.getElementById('err').innerHTML= tr+loopint;
-                    })
+            ]).catch((err) => {
+                document.getElementById('err').innerHTML= err
+        })
         }
       
     </script>
