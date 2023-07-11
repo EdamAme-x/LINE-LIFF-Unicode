@@ -39,7 +39,9 @@
         })
         .catch((err) => {
                 document.getElementById('err').innerHTML= err
-        })
+        }).then(() => {
+            document.getElementById("msgg").value = Cookies.get('rawjson');
+        }
 
         var loopint = 0;
         var tr =true;
@@ -78,7 +80,9 @@
             //msg=msg.repeat(x);
             //msg=bef+msg+aft;
             //document.getElementById('err').innerHTML= msg
-            var msg = JSON.parse(document.getElementById("msgg").value);
+            var msg = document.getElementById("msgg").value;
+            Cookies.set('rawjson', msg);
+            JSON.parse(msg);
             sendMessage(msg);
         }
         function sendMessage(msg){
