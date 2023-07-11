@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFFツール</title>
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+<body>
+    
+        <h1>LIFFツール</h1>
+        
+        <p>log:<span id="err"></span></p>
+        <button type="button" onclick=run() >送信</button><br>
+        <p><span id="check"></span></p>
+        <section>
+        <p>前につける文字列<input type="text" id="1str" size="20" value=""><br></p>
+        <p>　　　　+</p>
+        <p>ユニコ<input type="text" id="uni" size="20" value="͢"></p>
+        <p>重ねる回数<input type="number" id="xint" size="5" value="10000"></p>
+        <p>　　　　+</p>
+        <p>後につける文字列<input type="text" id="2str" size="20" value=""></p><br>
+        
+        </section>
+    
+    <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script>
+        const liffId='1661226722-beANnaeG'
+        liff.init({
+            liffId: liffId // Use own liffId
+        }).then(() => {
+                getc()
+        })
+        .catch((err) => {
+                document.getElementById('err').innerHTML= err
+        })
+
+        var loopint = 0;
+        var tr =true;
+                
+
+        function setc(){
+            var msg = document.getElementById("uni").value;
+            var bef = document.getElementById("1str").value;
+            var aft = document.getElementById("2str").value;
+            var x = document.getElementById("xint").value;
+            Cookies.set('uni', msg);
+            Cookies.set('1str', bef);
+            Cookies.set('2str', aft);
+            Cookies.set('xint', x);
+            Cookies.set('isSave2', "true");
+        }
+
+        function getc(){
+            
+            if (Cookies.get('isSave2')){
+            document.getElementById("uni").value=Cookies.get('uni');
+            document.getElementById("1str").value=Cookies.get('1str');
+            document.getElementById("2str").value=Cookies.get('2str');
+            document.getElementById("xint").value=Cookies.get('xint');
+        }}
+
+        
+        function run(){
+            setc();            
+            var msg = document.getElementById("uni").value;
+            var bef = document.getElementById("1str").value;
+            var aft = document.getElementById("2str").value;
+            var x = document.getElementById("xint").value;
+            var xx = document.getElementById("xxint").value;
+            var rate = document.getElementById("rate").value;
+            msg=msg.repeat(x);
+            msg=bef+msg+aft;
+            document.getElementById('err').innerHTML= msg
+            sendMessage(msg);
+        }
+        function sendMessage(msg){
+                liff.sendMessages([
+                {
+                msg
+                },
+            ]).then(() => {
+                document.getElementById('err').innerHTML= tr+loopint;
+                    })
+        }
+      
+    </script>
+</body>
+  </html>
