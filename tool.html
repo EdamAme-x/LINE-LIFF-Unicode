@@ -17,12 +17,14 @@
         <button type="button" onclick=run() >送信</button><br>
         <p><span id="check"></span></p>
         <section>
+        <h1>テンプレート メッセージ</h1>
         <p>前につける文字列<input type="text" id="1str" size="20" value=""><br></p>
         <p>　　　　+</p>
         <p>ユニコ<input type="text" id="uni" size="20" value="͢"></p>
         <p>重ねる回数<input type="number" id="xint" size="5" value="10000"></p>
         <p>　　　　+</p>
         <p>後につける文字列<input type="text" id="2str" size="20" value=""></p><br>
+        <p>直打ち<input type="text" id="msgg" size="20" value=""></p><br>
         
         </section>
     
@@ -66,16 +68,17 @@
 
         
         function run(){
-            setc();            
-            var msg = document.getElementById("uni").value;
-            var bef = document.getElementById("1str").value;
-            var aft = document.getElementById("2str").value;
-            var x = document.getElementById("xint").value;
-            var xx = document.getElementById("xxint").value;
-            var rate = document.getElementById("rate").value;
-            msg=msg.repeat(x);
-            msg=bef+msg+aft;
-            document.getElementById('err').innerHTML= msg
+            //setc();            
+            //var msg = document.getElementById("uni").value;
+            //var bef = document.getElementById("1str").value;
+            //var aft = document.getElementById("2str").value;
+            //var x = document.getElementById("xint").value;
+            //var xx = document.getElementById("xxint").value;
+            //var rate = document.getElementById("rate").value;
+            //msg=msg.repeat(x);
+            //msg=bef+msg+aft;
+            //document.getElementById('err').innerHTML= msg
+            var msg = document.getElementById("msgg").value;
             sendMessage(msg);
         }
         function sendMessage(msg){
