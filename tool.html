@@ -10,19 +10,67 @@
     
 </head>
 <body>
-    <h1>LIFFツール<br>テンプレート メッセージ</h1>
+    <h1>LIFFツール<br>FLEX ジェネレーター</h1>
     <p>直打ち／出力<input type="text" id="msgg" size="20" value=""></p><br>
     <button type="button" onclick=run() >送信</button><br>
     <p>log:<span id="err"></span></p>
-    <p>以下、開発中</p>
+    <p>以下、開発中...テンプレート</p>
         <section>
             <h3>投票箱</h3>
-            <p>通知メッセージ<input type="text" id="alt" size="20" value="[投票] "></p><br>
-            <p>タイトル<input type="text" id="alt" size="20" value="[投票] "></p><br>
-            <p>説明文<input type="text" id="alt" size="20" value="投票に参加してみましょう"></p><br>
+            <p>通知メッセージ<input type="text" id="Valt" size="20" value="[投票] "></p>
+            <p>タイトル<input type="text" id="Vtitle" size="20" value="[投票] "></p>
+            <p>説明文<input type="text" id="Vinfo" size="20" value="投票に参加してみましょう"></p>
+            <p>ボタン名<input type="text" id="VbutName" size="20" value="投票する"></p>
+            <p>ボタンuri<input type="text" id="VbutUri" size="20" value="https://line.me"></p>
+            <p>投票uri<input type="text" id="Vuri" size="20" value="https://line.me"></p>
+            <p>画像url<input type="text" id="VimgUrl" size="20" value=""></p>
+            <button type="button" onclick= Vout()>出力</button><br>
         </section>
-        
-    
+        <section>
+            <h3>ライブトーク</h3>
+            <p>通知メッセージ<input type="text" id="Lalt" size="20" value="ライブトークが始まりました"></p>
+            <p>タイトル<input type="text" id="Ltitle" size="20" value=""></p>
+            <p>説明文<input type="text" id="Linfo" size="20" value=""></p>
+            <p>ボタン名<input type="text" id="LbutName" size="20" value=""></p>
+            <p>ボタンuri<input type="text" id="LbutUri" size="20" value="https://line.me"></p>
+            <p>オプ画像url<input type="text" id="LimgUrl" size="20" value=""></p>
+            <p>背景画像url<input type="text" id="LBimgUrl" size="20" value=""></p>
+            <button type="button" onclick= Lout()>出力</button><br>
+        </section>
+        <section>
+            <h3>オープンチャット利用制限</h3>
+            <p>通知メッセージ<input type="text" id="Oalt" size="20" value="オープンチャット利用制限：１日間"></p>
+            <p>タイトル<input type="text" id="Otitle" size="20" value=""></p>
+            <p>説明文<input type="text" id="Oinfo" size="20" value=""></p>
+            <p>ボタン名<input type="text" id="ObutName" size="20" value=""></p>
+            <p>ボタンuri<input type="text" id="ObutUri" size="20" value="https://line.me"></p>
+            <p>サービスuri<input type="text" id="Ourl" size="20" value="https://line.me"></p>
+            <button type="button" onclick= Oout()>出力</button><br>
+        </section>
+        <section>
+            <h3>オープンチャット招待</h3>
+            <p>通知メッセージ<input type="text" id="Ialt" size="20" value="オープンチャット利用制限：１日間"></p>
+            <p>タイトル<input type="text" id="Ititle" size="20" value=""></p>
+            <p>説明文<input type="text" id="Iinfo" size="20" value=""></p>
+            <p>ボタン名<input type="text" id="IbutName" size="20" value=""></p>
+            <p>ボタンuri<input type="text" id="IbutUri" size="20" value="https://line.me"></p>
+            <p>画像url<input type="text" id="IimgUrl" size="20" value=""></p>
+            <button type="button" onclick= Iout()>出力</button><br>
+        </section>
+        <section>
+            <h3>カスタム</h3>
+            <p>通知メッセージ<input type="text" id="Calt" size="20" value="オープンチャット利用制限：１日間"></p>
+            <p>タイトル<input type="text" id="Ctitle" size="20" value=""></p>
+            <p>説明文<input type="text" id="Cinfo" size="20" value=""></p>
+            <p>画像url<input type="text" id="CimgUrl" size="20" value=""></p>
+            <button type="button" onclick= Cout()>枠出力↓</button><br>
+            <p><span id="cout"></span></p>
+            <p>ボタン生成</p>
+            <p>ボタン名<input type="text" id="CbutName" size="20" value=""></p>
+            <p>ボタンuri<input type="text" id="CbutUri" size="20" value="https://line.me"></p>
+            <button type="button" onclick= CBout()>ボタン出力↓</button><br>
+            <p><span id="cbout"></span></p>
+        </section>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script>
