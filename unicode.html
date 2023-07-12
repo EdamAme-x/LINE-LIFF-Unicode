@@ -109,7 +109,26 @@
             loopSleep(xx,rate,function(i){
             sendMessage(msg);
             });
-            
+            function sendMessage(msg){
+                loopint++;
+                liff.sendMessages([
+                {
+                type: 'text',
+                text:msg
+                },{
+                type: 'text',
+                text:msg
+                },{
+                type: 'text',
+                text:msg
+                },{
+                type: 'text',
+                text:msg
+                }
+            ]).then(() => {
+                document.getElementById('err').innerHTML= tr+loopint;
+                    })
+        }
         
         }
 
@@ -158,12 +177,10 @@
             msg=msg.repeat(x);
             msg=bef+msg+aft;
         //document.getElementById('err').innerHTML= msg;
-            sendMessage(msg);
+            send1Message(msg);
         }
         
-        function sendMessage(msg){
-                
-            if !(tr){
+        function send1Message(msg){
                 loopint++;
                 liff.sendMessages([
                 {
@@ -173,10 +190,6 @@
             ]).then(() => {
                 document.getElementById('err').innerHTML= tr+loopint;
                     })
-            }else{
-                document.getElementById('err').innerHTML= tr;
-                return(false)
-            }
         }
             </script>
 </body>
