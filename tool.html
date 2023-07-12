@@ -29,9 +29,9 @@
         <section>
             <h1>ライブトーク</h1>
             <p>通知メッセージ<input type="text" id="Lalt" size="20" value="ライブトークが始まりました"></p>
-            <p>タイトル<input type="text" id="Ltitle" size="20" value=""></p>
-            <p>説明文<input type="text" id="Linfo" size="20" value=""></p>
-            <p>ボタン名<input type="text" id="LbutName" size="20" value=""></p>
+            <p>タイトル<input type="text" id="Ltitle" size="20" value="オープンチャット"></p>
+            <p>説明文<input type="text" id="Linfo" size="20" value="ライブトークが始まりました"></p>
+            <p>ボタン名<input type="text" id="LbutName" size="20" value="ライブトークが始まりました。ライブに参加してみましょう。"></p>
             <p>ボタンuri<input type="text" id="LbutUri" size="20" value="https://line.me"></p>
             <p>オプ画像url<input type="text" id="LimgUrl" size="20" value="https://pbs.twimg.com/profile_images/1143561629293932546/sHLQ_Mgr_400x400.png"></p>
             <button type="button" onclick= Lout()>出力</button><br>
@@ -39,9 +39,9 @@
         <section>
             <h1>オープンチャット利用制限</h1>
             <p>通知メッセージ<input type="text" id="Oalt" size="20" value="オープンチャット利用制限：１日間"></p>
-            <p>タイトル<input type="text" id="Otitle" size="20" value=""></p>
-            <p>説明文<input type="text" id="Oinfo" size="20" value=""></p>
-            <p>ボタン名<input type="text" id="ObutName" size="20" value=""></p>
+            <p>タイトル<input type="text" id="Otitle" size="20" value="オープンチャット利用制限：１日間"></p>
+            <p>説明文<input type="text" id="Oinfo" size="20" value="運営への批判などが含まれたコンテンツをシェアした疑いがあるため、サービスの利用が制限されました。禁止事項に関する詳細は、以下のリンクをご確認ください。"></p>
+            <p>ボタン名<input type="text" id="ObutName" size="20" value="安心・安全ガイドライン"></p>
             <p>ボタンuri<input type="text" id="ObutUri" size="20" value="https://line.me"></p>
             <p>サービスuri<input type="text" id="Ourl" size="20" value="https://line.me"></p>
             <button type="button" onclick= Oout()>出力</button><br>
@@ -103,7 +103,17 @@
             var butName = document.getElementById("LbutName").value;
             var butUri = document.getElementById("LbutUri").value;
             var imag = document.getElementById("LimgUrl").value;
-            document.getElementById("msgg").value = ""
+            document.getElementById("msgg").value = `[{"type":"flex","altText":"${alt}","contents":{"type":"bubble","size":"kilo","body":{"type":"box","layout":"vertical","contents":[{"type":"image","url":"https://obs.line-scdn.net/0hF3YRnB6wGRxkKwtVFGNmS2t9RDIIXw0XAB9IBzlUM0I0ZSg0PSU3Dl5qGHo","aspectRatio":"260:395","aspectMode":"cover","position":"absolute","align":"end","size":"full"},{"type":"box","layout":"horizontal","contents":[{"type":"box","layout":"vertical","contents":[{"type":"box","layout":"vertical","contents":[{"type":"image","url":"https://obs.line-scdn.net/0hIYLvh3INFnZxDwQ_B4ppIXlZS1gdewJ9FTtHbQxIHCgofxVwEDESRBcQCRkK","position":"absolute","size":"11px","align":"start","offsetTop":"7px","offsetStart":"14px"},{"type":"text","text":"Livetalk","size":"9px","color":"#06C755","weight":"bold","offsetStart":"29px","align":"start","offsetBottom":"md","position":"absolute"}],"position":"absolute","width":"82px","height":"26px","cornerRadius":"20px","backgroundColor":"#00000040","offsetStart":"13px","offsetTop":"13px"},{"type":"box","layout":"vertical","contents":[{"type":"image","url":"${imag}","aspectMode":"cover","size":"full"}],"width":"95px","height":"95px","cornerRadius":"100px","offsetTop":"18%","offsetStart":"32%"},{"type":"box","layout":"vertical","contents":[{"type":"text","text":"${title}","margin":"none","size":"20px","color":"#FFFFFF","weight":"bold","align":"center","wrap":true,"maxLines":2},{"type":"text","text":"${info}","color":"#ffffff80","margin":"sm","size":"13px","weight":"regular","maxLines":2,"align":"center","wrap":true}],"position":"absolute","offsetTop":"49%","paddingStart":"28px","paddingEnd":"28px"},{"type":"box","layout":"vertical","contents":[{"type":"box","layout":"baseline","contents":[{"type":"filler"},{"type":"icon","url":"https://obs.line-scdn.net/0h5s5xAax5alwIAXhwhy0VCz9XN3JkdX5XbDU7Yn9fawJ4aWpecTd4YENAdzRiYWheKyZ6bA","size":"12px","offsetTop":"1.5px"},{"type":"text","text":"${butName}","size":"12px","color":"#ffffff","weight":"bold","maxLines":1,"flex":0,"wrap":true},{"type":"filler"}],"paddingTop":"5%","paddingBottom":"5%","spacing":"4px"}],"backgroundColor":"#06C755","height":"35px","cornerRadius":"7px","offsetStart":"10%","offsetEnd":"10%","offsetBottom":"7.5%","position":"absolute","justifyContent":"center"},{"type":"button","action":{"type":"uri","uri":"${butUri}","label":""},"position":"absolute","height":"md","style":"link","offsetTop":"81%","offsetStart":"none","offsetEnd":"none"}],"position":"relative"}],"offsetStart":"0px","offsetEnd":"0px","width":"100%","height":"100%","position":"absolute"}],"paddingAll":"0px","cornerRadius":"0px","backgroundColor":"#2a2a2a","height":"378px","width":"100%"},"styles":{"body":{"backgroundColor":"#000000"}}}}]`
+                }
+
+        function Oout(){
+            var alt = document.getElementById("Oalt").value;
+            var title = document.getElementById("Otitle").value;
+            var info = document.getElementById("Oinfo").value;
+            var butName = document.getElementById("ObutName").value;
+            var butUri = document.getElementById("ObutUri").value;
+            var uri = document.getElementById("Ourl").value;
+            document.getElementById("msgg").value = `[{"type":"flex","altText":"${alt}","contents":{"type":"bubble","direction":"ltr","styles":{"footer":{"separator":true,"separatorColor":"#F0F0F0"}},"body":{"type":"box","layout":"vertical","contents":[{"type":"box","layout":"vertical","contents":[{"type":"text","text":"LINEオープンチャット","size":"sm","color":"#6486e3","weight":"bold","wrap":true},{"type":"text","text":"${title}","size":"xl","color":"#000000","weight":"bold","wrap":true}],"paddingTop":"sm","paddingBottom":"sm"},{"type":"box","layout":"vertical","contents":[{"type":"text","text":"${info}","size":"xs","color":"#555555","wrap":true}],"spacing":"sm","paddingTop":"md","paddingBottom":"md"},{"type":"box","layout":"vertical","contents":[{"type":"button","action":{"type":"uri","label":"${butName}","uri":"${butUri}"},"height":"sm"}],"paddingTop":"sm","paddingBottom":"sm"}],"spacing":"sm","paddingAll":"xl"},"footer":{"type":"box","layout":"horizontal","contents":[{"type":"box","layout":"vertical","contents":[{"type":"image","url":"https://obs.line-scdn.net/0hUoMuxuSZCkBwDCOxWCR1F0ZRASJDbhRLUi4acwFbDC8JaU0eHjpAL1INEXEPaU4THm0S","size":"full","position":"absolute","offsetTop":"0px","offsetBottom":"0px","offsetStart":"0px","offsetEnd":"0px"},{"type":"image","url":"https://vos.line-scdn.net/service-notifier/footer_profile_layer.png","size":"full","position":"absolute","offsetTop":"0px","offsetBottom":"0px","offsetStart":"0px","offsetEnd":"0px"}],"width":"20px","height":"20px"},{"type":"text","text":"LINEMyinquiries","size":"xs","gravity":"center","color":"#999999","weight":"bold"},{"type":"box","layout":"horizontal","contents":[{"type":"image","url":"https://vos.line-scdn.net/service-notifier/footer_go_btn.png","size":"full","gravity":"center"}],"width":"12px"}],"spacing":"md","action":{"type":"uri","label":"action","uri":"${uri}"}},"size":"kilo"}}]`
                 }
         
         function run(){
