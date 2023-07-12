@@ -115,6 +115,7 @@
             sendMessage(msg);
         }
         function sendMessage(msg){
+                document.getElementById('err').innerHTML= ""
                 liff.sendMessages(
                 msg
             ).catch((err) => {
