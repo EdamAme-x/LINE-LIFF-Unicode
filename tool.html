@@ -131,13 +131,14 @@
             var title = document.getElementById("Ctitle").value;
             var info = document.getElementById("Cinfo").value;
             var imag = document.getElementById("CimgUrl").value;
-            document.getElementById("cout").value = `[{"type":"template","altText":"${alt}","template":{"type":"buttons","thumbnailImageUrl":"${imag}":"rectangle","imageSize":"cover","imageBackgroundColor":"#FFFFFF","title":"${title}","text":"${info}","actions":[ボタンを入れる]}}]`
+            
+            document.getElementById("cout").innerHTML = `[{"type":"template","altText":"${alt}","template":{"type":"buttons","thumbnailImageUrl":"${imag}":"rectangle","imageSize":"cover","imageBackgroundColor":"#FFFFFF","title":"${title}","text":"${info}","actions":[ボタンを入れる]}}]`
         }
 
         function CBout(){
             var butName = document.getElementById("CbutName").value;
             var butUri = document.getElementById("CbutUri").value;
-            document.getElementById("cbout").value = `{"type":"uri","label":"${butName}","uri":"${butUri}"},`
+            document.getElementById("cbout").innerHTML = `{"type":"uri","label":"${butName}","uri":"${butUri}"},`
 
         }
         
