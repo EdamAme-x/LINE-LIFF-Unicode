@@ -76,10 +76,7 @@
         const liffId='1661226722-beANnaeG'
         liff.init({
             liffId: liffId // Use own liffId
-        }).then(() => {
-                getc()
-        })
-        .catch((err) => {
+        }).catch((err) => {
                 document.getElementById('err').innerHTML= err
         }).then(() => {
             document.getElementById("msgg").value = Cookies.get('rawjson');
