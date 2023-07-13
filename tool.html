@@ -10,11 +10,11 @@
     
 </head>
 <body>
-    <h1>LIFFツール<br>FLEX ジェネレーター</h1>
-    <p>直打ち／出力<input type="text" id="msgg" size="20" value=""></p>
+    <h1>flex メッセージ</h1>
+    <p>直打ち／json出力<input type="text" id="msgg" size="20" value=""></p>
     <button type="button" onclick=run() >送信</button><br>
     <p>log:<span id="err"></span></p>
-    <p>以下、開発中...テンプレート</p>
+    
         <section>
             <h1>投票箱</h1>
             <p>通知メッセージ<input type="text" id="Valt" size="20" value="[投票] "></p>
@@ -24,7 +24,7 @@
             <p>ボタンuri<input type="text" id="VbutUri" size="20" value="https://line.me"></p>
             <p>投票uri<input type="text" id="Vuri" size="20" value="https://line.me"></p>
             <p>画像url<input type="text" id="VimgUrl" size="20" value="https://scdn.line-apps.com/n/_1/poll/static/icon-message-1024.971665e3.png"></p>
-            <button type="button" onclick= Vout()>出力</button><br><br>
+            <button type="button" onclick= Vout()>json出力</button><br><br>
         </section>
         <section>
             <h1>ライブトーク</h1>
@@ -34,7 +34,7 @@
             <p>ボタン名<input type="text" id="LbutName" size="20" value="ライブトークに参加"></p>
             <p>ボタンuri<input type="text" id="LbutUri" size="20" value="https://line.me"></p>
             <p>オプ画像url<input type="text" id="LimgUrl" size="20" value="https://pbs.twimg.com/profile_images/1143561629293932546/sHLQ_Mgr_400x400.png"></p>
-            <button type="button" onclick= Lout()>出力</button><br><br>
+            <button type="button" onclick= Lout()>json出力</button><br><br>
         </section>
         <section>
             <h1>オープンチャット利用制限</h1>
@@ -44,7 +44,7 @@
             <p>ボタン名<input type="text" id="ObutName" size="20" value="安心・安全ガイドライン"></p>
             <p>ボタンuri<input type="text" id="ObutUri" size="20" value="https://line.me"></p>
             <p>サービスuri<input type="text" id="Ourl" size="20" value="https://line.me"></p>
-            <button type="button" onclick= Oout()>出力</button><br><br>
+            <button type="button" onclick= Oout()>json出力</button><br><br>
         </section>
         <section>
             <h1>オープンチャット招待</h1>
@@ -54,7 +54,7 @@
             <p>ボタン名<input type="text" id="IbutName" size="20" value="参加する"></p>
             <p>ボタンuri<input type="text" id="IbutUri" size="20" value="https://line.me"></p>
             <p>オプ画像url<input type="text" id="IimgUrl" size="20" value="https://pbs.twimg.com/profile_images/1143561629293932546/sHLQ_Mgr_400x400.png"></p>
-            <button type="button" onclick= Iout()>出力</button><br><br>
+            <button type="button" onclick= Iout()>json出力</button><br><br>
         </section>
         <section>
             <h1>カスタム</h1>
