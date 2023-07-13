@@ -114,7 +114,17 @@
             var butUri = document.getElementById("ObutUri").value;
             var uri = document.getElementById("Ourl").value;
             document.getElementById("msgg").value = `[{"type":"flex","altText":"${alt}","contents":{"type":"bubble","direction":"ltr","styles":{"footer":{"separator":true,"separatorColor":"#F0F0F0"}},"body":{"type":"box","layout":"vertical","contents":[{"type":"box","layout":"vertical","contents":[{"type":"text","text":"LINEオープンチャット","size":"sm","color":"#6486e3","weight":"bold","wrap":true},{"type":"text","text":"${title}","size":"xl","color":"#000000","weight":"bold","wrap":true}],"paddingTop":"sm","paddingBottom":"sm"},{"type":"box","layout":"vertical","contents":[{"type":"text","text":"${info}","size":"xs","color":"#555555","wrap":true}],"spacing":"sm","paddingTop":"md","paddingBottom":"md"},{"type":"box","layout":"vertical","contents":[{"type":"button","action":{"type":"uri","label":"${butName}","uri":"${butUri}"},"height":"sm"}],"paddingTop":"sm","paddingBottom":"sm"}],"spacing":"sm","paddingAll":"xl"},"footer":{"type":"box","layout":"horizontal","contents":[{"type":"box","layout":"vertical","contents":[{"type":"image","url":"https://obs.line-scdn.net/0hUoMuxuSZCkBwDCOxWCR1F0ZRASJDbhRLUi4acwFbDC8JaU0eHjpAL1INEXEPaU4THm0S","size":"full","position":"absolute","offsetTop":"0px","offsetBottom":"0px","offsetStart":"0px","offsetEnd":"0px"},{"type":"image","url":"https://vos.line-scdn.net/service-notifier/footer_profile_layer.png","size":"full","position":"absolute","offsetTop":"0px","offsetBottom":"0px","offsetStart":"0px","offsetEnd":"0px"}],"width":"20px","height":"20px"},{"type":"text","text":"LINE My inquiries","size":"xs","gravity":"center","color":"#999999","weight":"bold"},{"type":"box","layout":"horizontal","contents":[{"type":"image","url":"https://vos.line-scdn.net/service-notifier/footer_go_btn.png","size":"full","gravity":"center"}],"width":"12px"}],"spacing":"md","action":{"type":"uri","label":"action","uri":"${uri}"}},"size":"kilo"}}]`
-                }
+        }
+
+        function Iout(){
+            var alt = document.getElementById("Ialt").value;
+            var title = document.getElementById("Ititle").value;
+            var info = document.getElementById("Iinfo").value;
+            var butName = document.getElementById("IbutName").value;
+            var butUri = document.getElementById("IbutUri").value;
+            var imag = document.getElementById("IimgUrl").value;
+            document.getElementById("msgg").value = `[{"type": "flex","altText": "${alt}","contents":{"type":"bubble","size":"kilo","body":{"type":"box","layout":"vertical","contents":[{"type":"image","url":"${imag}","size":"full","aspectMode":"cover","aspectRatio":"260:328","align":"end"},{"type":"image","url":"https://obs.line-scdn.net/0hI5cYsbLMFhpeID8D4iVpTVx2SzQyVAIROhRHKSN8Ji5yflJTIxkP","size":"full","aspectRatio":"260:328","align":"end","aspectMode":"cover","position":"absolute"},{"type":"image","url":"https://obs.line-scdn.net/0hJ44fB5PeFRsJHzwCtGJqTDxJSDVlawEQbStEA21LFHl9fxcjdzEGLnJCTlomZk0Mai8","size":"full","aspectMode":"cover","aspectRatio":"260:328","align":"end","position":"absolute"},{"type":"box","layout":"horizontal","contents":[{"type":"box","layout":"vertical","contents":[{"type":"box","layout":"vertical","contents":[{"type":"text","text":"${title}","size":"lg","color":"#FFFFFF","weight":"bold","maxLines":4,"wrap":true,"margin":"none","align":"start"},{"type":"text","text":"${info}","color":"#ffffff","size":"xs","weight":"regular","margin":"sm"}],"offsetStart":"16.92%","offsetEnd":"17.31%","position":"absolute","offsetTop":"25%"},{"type":"box","layout":"baseline","contents":[{"type":"text","text":"${butName}","color":"#ffffff","weight":"bold","size":"sm","gravity":"center"},{"type":"icon","url":"https://obs.line-scdn.net/0hQpG1rFeGDl96SCdGxgZxCHUeU3EWPBpUHnxfaRwLDik5KwxWRV9DcEAJDzk","position":"relative","size":"xxs"}],"position":"absolute","offsetTop":"83.84%","spacing":"xxl","width":"100%","paddingStart":"16.92%","paddingEnd":"17.31%"},{"type":"button","action":{"type":"uri","label":" ","uri":"${butUri}"},"style":"link","height":"md","offsetTop":"79.26%","position":"absolute","offsetStart":"none","offsetEnd":"none"}],"position":"relative"}],"position":"absolute","offsetStart":"0px","offsetEnd":"0px","width":"100%","height":"100%"}],"paddingAll":"0px","width":"100%","height":"100%","backgroundColor":"#aaaaaa00"}}}]`
+        }
         
         function run(){
             var msg = document.getElementById("msgg").value;
@@ -134,3 +144,4 @@
     </script>
 </body>
   </html>
+i
