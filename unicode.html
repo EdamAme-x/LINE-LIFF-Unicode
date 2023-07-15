@@ -63,7 +63,26 @@
                 loopFunc();
         }        
 
+        function setc(){
+            var msg = document.getElementById("uni").value;
+            var bef = document.getElementById("1str").value;
+            var aft = document.getElementById("2str").value;
+            var x = document.getElementById("xint").value;
+            Cookies.set('uni', msg);
+            Cookies.set('1str', bef);
+            Cookies.set('2str', aft);
+            Cookies.set('xint', x);
+            Cookies.set('isSave', "true");
+        }
 
+        function getc(){
+            
+            if (Cookies.get('isSave')){
+            document.getElementById("uni").value=Cookies.get('uni');
+            document.getElementById("1str").value=Cookies.get('1str');
+            document.getElementById("2str").value=Cookies.get('2str');
+            document.getElementById("xint").value=Cookies.get('xint');
+        }}
         function sub(){
             liff.openWindow({url: "https://liff.line.me/1661226722-beANnaeG"})
         }
