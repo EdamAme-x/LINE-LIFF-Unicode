@@ -11,20 +11,42 @@
 </head>
 <body>
     
-        <h1>LIFFユニマク 自動連投</h1>
+        <h1>LIFFユニマク<br>カスタム連投</h1>
       　
         <p>:<span id="err"></span></p>
         <p><input type="number" id="xxint" size="5" value="100">回<br><input type="number" id="rate" size="5" value="700">間隔<br></p>
-        <span id="but"></span><button type="button" onclick=check() >文字数チェック</button><br>
+        <button type=\"button\" onclick=run() >連投開始</button><br>
         <button type="button" onclick=sendMsg() >改行砲</button><button type="button" onclick=run2() >ユニコ手動投下</button>
         <p><span id="check"></span></p>
         <section>
-        <p>前につける文字列<input type="text" id="1str" size="20" value=""><br></p>
+        <p>1個目</p>
+        <p>前につける文字列<input type="text" id="11str" size="20" value=""><br></p>
         <p>　　　　+</p>
-        <p>ユニコ<input type="text" id="uni" size="20" value="͢"></p>
-        <p>重ねる回数<input type="number" id="xint" size="5" value="10000"></p>
+        <p>ユニコ<input type="text" id="1uni" size="20" value="͢"></p>
+        <p>重ねる回数<input type="number" id="1xint" size="5" value="10000"></p>
         <p>　　　　+</p>
-        <p>後につける文字列<input type="text" id="2str" size="20" value=""></p><br>
+        <p>後につける文字列<input type="text" id="12str" size="20" value=""></p><br>
+        <p>2個目</p>
+        <p>前につける文字列<input type="text" id="21str" size="20" value=""><br></p>
+        <p>　　　　+</p>
+        <p>ユニコ<input type="text" id="2uni" size="20" value="͢"></p>
+        <p>重ねる回数<input type="number" id="2xint" size="5" value="10000"></p>
+        <p>　　　　+</p>
+        <p>後につける文字列<input type="text" id="22str" size="20" value=""></p><br>
+        <p>3個目</p>
+        <p>前につける文字列<input type="text" id="31str" size="20" value=""><br></p>
+        <p>　　　　+</p>
+        <p>ユニコ<input type="text" id="3uni" size="20" value="͢"></p>
+        <p>重ねる回数<input type="number" id="3xint" size="5" value="10000"></p>
+        <p>　　　　+</p>
+        <p>後につける文字列<input type="text" id="32str" size="20" value=""></p><br>
+        <p>4個目</p>
+        <p>前につける文字列<input type="text" id="41str" size="20" value=""><br></p>
+        <p>　　　　+</p>
+        <p>ユニコ<input type="text" id="4uni" size="20" value="͢"></p>
+        <p>重ねる回数<input type="number" id="4xint" size="5" value="10000"></p>
+        <p>　　　　+</p>
+        <p>後につける文字列<input type="text" id="42str" size="20" value=""></p><br>
         
         </section>
     
@@ -34,15 +56,11 @@
         const liffId='1661226722-beANnaeG'
         liff.init({
             liffId: liffId // Use own liffId
-        }).then(() => {
-                getc()
-        })
-        .catch((err) => {
+        }).catch((err) => {
                 document.getElementById('err').innerHTML= err
         })
 
         var loopint = 0;
-        var tr =true;
         
         function loopSleep(_loopLimit,_interval, _mainFunc){
             var loopLimit = _loopLimit;
@@ -61,72 +79,73 @@
                 }
                 }
                 loopFunc();
-        }        
-
-
-        function setc(){
-            var msg = document.getElementById("uni").value;
-            var bef = document.getElementById("1str").value;
-            var aft = document.getElementById("2str").value;
-            var x = document.getElementById("xint").value;
-            Cookies.set('uni', msg);
-            Cookies.set('1str', bef);
-            Cookies.set('2str', aft);
-            Cookies.set('xint', x);
-            Cookies.set('isSave', "true");
         }
 
-        function getc(){
-            
-            if (Cookies.get('isSave')){
-            document.getElementById("uni").value=Cookies.get('uni');
-            document.getElementById("1str").value=Cookies.get('1str');
-            document.getElementById("2str").value=Cookies.get('2str');
-            document.getElementById("xint").value=Cookies.get('xint');
-        }}
-
         function stop(){
-            tr=false;
-            setc()
             document.getElementById('but').innerHTML= "";
             location.reload();
         }
         
         function run(){
-            tr=true;
             document.getElementById('but').innerHTML= "<button type=\"button\" onclick=stop() >連投停止</button>";
-            loopint=-1;
-            setc();            
-            var msg = document.getElementById("uni").value;
-            var bef = document.getElementById("1str").value;
-            var aft = document.getElementById("2str").value;
-            var x = document.getElementById("xint").value;
+            loopint=-1;          
+            var amsg = document.getElementById("1uni").value;
+            var abef = document.getElementById("11str").value;
+            var aaft = document.getElementById("12str").value;
+            var ax = document.getElementById("1xint").value;
+            
+            var bmsg = document.getElementById("2uni").value;
+            var bbef = document.getElementById("21str").value;
+            var baft = document.getElementById("22str").value;
+            var bx = document.getElementById("2xint").value;
+            
+            var cmsg = document.getElementById("3uni").value;
+            var cbef = document.getElementById("31str").value;
+            var caft = document.getElementById("32str").value;
+            var cx = document.getElementById("3xint").value;
+            
+            var dmsg = document.getElementById("4uni").value;
+            var dbef = document.getElementById("41str").value;
+            var daft = document.getElementById("42str").value;
+            var dx = document.getElementById("4xint").value;
+            
             var xx = document.getElementById("xxint").value;
             var rate = document.getElementById("rate").value;
-            msg=msg.repeat(x);
-            msg=bef+msg+aft;
-        //document.getElementById('err').innerHTML= msg;
+            
+            amsg=amsg.repeat(ax);
+            amsg=abef+amsg+aaft;
+
+            bmsg=bmsg.repeat(bx);
+            bmsg=bbef+bmsg+baft;
+            
+            cmsg=cmsg.repeat(cx);
+            cmsg=cbef+cmsg+caft;
+            
+            dmsg=dmsg.repeat(dx);
+            dmsg=dbef+dmsg+daft;
+            
             loopSleep(xx,rate,function(i){
-            sendMessage(msg);
+            sendMessage(amsg,bmsg,cmsg,dmsg);
             });
-            function sendMessage(msg){
+            
+            function sendMessage(msga,msgb,msgc,msgd){
                 loopint++;
                 liff.sendMessages([
                 {
                 type: 'text',
-                text:msg
+                text:msga
                 },{
                 type: 'text',
-                text:msg
+                text:msgb
                 },{
                 type: 'text',
-                text:msg
+                text:msgc
                 },{
                 type: 'text',
-                text:msg
+                text:msgd
                 }
             ]).then(() => {
-                document.getElementById('err').innerHTML= tr+loopint;
+                document.getElementById('err').innerHTML= loopint;
                     })
         }
         
@@ -153,44 +172,49 @@
             .catch((err) => {
                 document.getElementById('err').innerHTML= err
             });}
-            
-        function check(){
-            var msg = document.getElementById("uni").value.length;
-            var bef = document.getElementById("1str").value.length;
-            var aft = document.getElementById("2str").value.length;
-            var x = document.getElementById("xint").value;
-            var len = bef+aft+msg*x;
-            if(len>10050){
-                document.getElementById('check').innerHTML = len+" - 長すぎます<br>"+bef+"+"+msg+"x"+x+"+"+aft;
-            }else{document.getElementById('check').innerHTML = len+" - 連投可能<br>"+bef+"+"+msg+"x"+x+"+"+aft;
-                  document.getElementById('but').innerHTML= "<button type=\"button\" onclick=run() >連投開始</button>"
-                 }
-        }
 
         function run2(){
-            setc();
-            check();
-            var msg = document.getElementById("uni").value;
-            var bef = document.getElementById("1str").value;
-            var aft = document.getElementById("2str").value;
-            var x = document.getElementById("xint").value;
-            msg=msg.repeat(x);
-            msg=bef+msg+aft;
-        //document.getElementById('err').innerHTML= msg;
-            send1Message(msg);
+           function run(){
+            document.getElementById('but').innerHTML= "<button type=\"button\" onclick=stop() >連投停止</button>";
+            loopint=-1;          
+            var amsg = document.getElementById("1uni").value;
+            var abef = document.getElementById("11str").value;
+            var aaft = document.getElementById("12str").value;
+            var ax = document.getElementById("1xint").value;
+            
+            var bmsg = document.getElementById("2uni").value;
+            var bbef = document.getElementById("21str").value;
+            var baft = document.getElementById("22str").value;
+            var bx = document.getElementById("2xint").value;
+            
+            var cmsg = document.getElementById("3uni").value;
+            var cbef = document.getElementById("31str").value;
+            var caft = document.getElementById("32str").value;
+            var cx = document.getElementById("3xint").value;
+            
+            var dmsg = document.getElementById("4uni").value;
+            var dbef = document.getElementById("41str").value;
+            var daft = document.getElementById("42str").value;
+            var dx = document.getElementById("4xint").value;
+            
+            var xx = document.getElementById("xxint").value;
+            var rate = document.getElementById("rate").value;
+            
+            amsg=amsg.repeat(ax);
+            amsg=abef+amsg+aaft;
+
+            bmsg=bmsg.repeat(bx);
+            bmsg=bbef+bmsg+baft;
+            
+            cmsg=cmsg.repeat(cx);
+            cmsg=cbef+cmsg+caft;
+            
+            dmsg=dmsg.repeat(dx);
+            dmsg=dbef+dmsg+daft;
+            
+            sendMessage(amsg,bmsg,cmsg,dmsg);
         }
-        
-        function send1Message(msg){
-                loopint++;
-                liff.sendMessages([
-                {
-                type: 'text',
-                text:msg
-                },
-            ]).then(() => {
-                document.getElementById('err').innerHTML= tr+loopint;
-                    })
-        }
+
             </script>
 </body>
 </html>
