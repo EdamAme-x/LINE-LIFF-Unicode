@@ -127,8 +127,9 @@
             loopSleep(xx,rate,function(i){
             sendMessage(amsg,bmsg,cmsg,dmsg);
             });
-            
-            function sendMessage(msga,msgb,msgc,msgd){
+        }
+
+        function sendMessage(msga,msgb,msgc,msgd){
                 loopint++;
                 liff.sendMessages([
                 {
@@ -147,8 +148,6 @@
             ]).then(() => {
                 document.getElementById('err').innerHTML= loopint;
                     })
-        }
-        
         }
 
         function sendMsg(){
