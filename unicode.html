@@ -12,7 +12,7 @@
 <body>
     
         <h1>LIFFユニマク 自動連投</h1>
-        <p><a href="unicode2.html">カスタムユニコ</a><button type="button" onclick= liff.openWindow({url: "https://liff.line.me/1661226722-beANnaeG"}) >test</button></p>
+        <p><a href="unicode2.html">カスタムユニコ</a><button type="button" onclick= sub() >test</button></p>
         <p>:<span id="err"></span></p>
         <p><input type="number" id="xxint" size="5" value="100">回<br><input type="number" id="rate" size="5" value="700">間隔<br></p>
         <span id="but"></span><button type="button" onclick=check() >文字数チェック</button><br>
@@ -64,27 +64,9 @@
         }        
 
 
-        function setc(){
-            var msg = document.getElementById("uni").value;
-            var bef = document.getElementById("1str").value;
-            var aft = document.getElementById("2str").value;
-            var x = document.getElementById("xint").value;
-            Cookies.set('uni', msg);
-            Cookies.set('1str', bef);
-            Cookies.set('2str', aft);
-            Cookies.set('xint', x);
-            Cookies.set('isSave', "true");
+        function sub(){
+            liff.openWindow({url: "https://liff.line.me/1661226722-beANnaeG"})
         }
-
-        function getc(){
-            
-            if (Cookies.get('isSave')){
-            document.getElementById("uni").value=Cookies.get('uni');
-            document.getElementById("1str").value=Cookies.get('1str');
-            document.getElementById("2str").value=Cookies.get('2str');
-            document.getElementById("xint").value=Cookies.get('xint');
-        }}
-
         function stop(){
             tr=false;
             setc()
