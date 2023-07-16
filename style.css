@@ -41,4 +41,9 @@ input {
     border: solid 1px #aaa;
     border-radius: 5px;
     margin: 2px;
+    margin: 0 5px;
+}
+
+a,a:visited {
+  color: #fff;
 }

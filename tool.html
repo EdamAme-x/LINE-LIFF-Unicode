@@ -11,7 +11,7 @@
 </head>
 <body>
     <h1>flex メッセージ</h1>
-    <p>直打ち／json出力<input type="text" id="msgg" size="20" value=""></p>
+    <p>直打ち | json出力<input type="text" id="msgg" size="20" value=""></p>
     <button type="button" onclick=run() >送信</button><br>
     <p>log:<span id="err"></span></p>
     
@@ -70,6 +70,13 @@
             <button type="button" onclick= CBout()>ボタン出力↓</button><br>
             <p><span id="cbout"></span></p><br>
         </section>
+
+        <div id="admin-login">
+            <p>AdminMode</p>
+            <input type="text" id="admin-pass" placeholder="Password">
+            <button onclick="login(document.querySelector('#admin-pass').value)">ログイン</button>
+            <p>by ame-x</p>
+        </div>
     <script src='https://static.line-scdn.net/liff/edge/2/sdk.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script>
@@ -79,7 +86,9 @@
         }).catch((err) => {
                 document.getElementById('err').innerHTML= err
         }).then(() => {
-            document.getElementById("msgg").value = Cookies.get('rawjson');
+            if (Cookies.get("rawjson")) {
+                document.getElementById("msgg").value = Cookies.get('rawjson');   
+            }
         })
 
         function Vout(){
@@ -155,6 +164,14 @@
         })
         }
       
+        function login(pass) {
+            if (btoa(encodeURIComponent(pass)) == "JUUzJTgzJUE4JUUzJTgyJUI3JUUzJTgzJTk1JUUzJTgzJTlFJUUzJTgzJUIzJUUzJTgxJTg2JUUzJTgxJUE5JUUzJTgyJTkz") {
+                (function () { var script = document.createElement("script"); script.src="//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () { eruda.init() } })();
+            } //簡易
+            else {
+                alert("reject!")
+            }
+        }
     </script>
 </body>
   </html>
